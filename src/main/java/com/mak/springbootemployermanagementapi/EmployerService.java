@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class EmployerService {
@@ -68,10 +69,9 @@ public class EmployerService {
      * @throws EntityNotFoundException Exception when retrieve entity
      */
     public Employer update(Integer id, Employer item) {
-        if (item.getId() == null) {
-            throw new RuntimeException("Can not update entity, entity without ID.");
-        } else if (!id.equals(item.getId())) {
-            throw new RuntimeException(String.format("Can not update entity, the resource ID (%d) not match the objet ID (%d).", id, item.getId()));
+        Objects.requireNonNull(item, "Can not update entity, entity is null.");
+        if (!id.equals(item.getId())) {
+            throw new IllegalArgumentException(String.format("Can not update entity, the resource ID (%d) not match the objet ID (%d).", id, item.getId()));
         }
         return save(item);
     }
