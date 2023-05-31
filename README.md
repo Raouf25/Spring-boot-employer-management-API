@@ -6,5 +6,7 @@ Security isn't an afterthought. It has to be an integral part of any development
 
 For more details please see this **[medium post](https://medium.com/quick-code/spring-boot-how-to-secure-rest-api-with-https-54ec8f0e4796)** .
 
+Check  **[swagger](https://localhost:8443/swagger-ui/index.html)** documentation locally
+
 ## License
 Copyright © 2020 by Abderraouf Makhlouf <makhlouf.raouf@gmail.com>
