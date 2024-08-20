@@ -71,4 +71,14 @@ public class EmployerController {
     public List<Employer> get() {
         return employerService.get();
     }
+
+
+    @GetMapping(path = "/memory-status")
+    public MemoryStats getMemoryStatistics() {
+        return new MemoryStats(
+                Runtime.getRuntime().totalMemory(),
+                Runtime.getRuntime().maxMemory(),
+                Runtime.getRuntime().freeMemory()
+        );
+    }
 }
